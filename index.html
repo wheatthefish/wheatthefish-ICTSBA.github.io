@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="Chin">
+<head>
+<title>Hong Kong Rock</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: visible;
+  background-color:#336699;
+}
+    header {
+        color: #13f575;
+        font-size: 48px;
+    }
+    ul { 
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    ul.drop-down-menu {
+        border: #336699 2px solid;
+        display: inline-block;
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 26px;
+    }
+
+    ul.drop-down-menu li {
+        position: relative;
+        white-space: nowrap;
+        border-right: #336699 1px solid;
+    }
+
+    ul.drop-down-menu > li:last-child {
+        border-right: none;
+    }
+
+    ul.drop-down-menu > li {
+        float: left; 
+    }
+
+     ul.drop-down-menu a {
+        background-color: #336699;
+        color: #ffffff;
+        display: block;
+        padding: 0 30px;
+        text-decoration: none;
+        line-height: 40px;
+
+    }
+    ul.drop-down-menu a:hover { 
+        background-color: #ef5c28;
+        color: #ffffff;
+    }
+    ul.drop-down-menu li:hover > a { 
+        background-color: #ef5c28;
+        color: #ffffff;
+    }
+    ul.drop-down-menu ul {
+        border: #336699 1px solid;
+        position: absolute;
+        z-index: 99;
+        left: -1px;
+        top: 100%;
+       min-width: 180px;
+    }
+
+    ul.drop-down-menu ul li {
+        border-bottom: #336699 1px solid;
+    }
+
+    ul.drop-down-menu ul li:last-child {
+        border-bottom: none;
+    }
+
+    ul.drop-down-menu ul ul { 
+        z-index: 999;
+        top: 10px;
+        left: 90%;
+    }
+    ul.drop-down-menu ul { 
+        display: none;
+    }
+
+    ul.drop-down-menu li:hover > ul { 
+        display: block;
+    }
+    ul.drop-down-menu ul { 
+        left: 99999px;
+        opacity: 0;
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+    }
+
+    ul.drop-down-menu li:hover > ul { 
+        opacity: 1;
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+        left: -1px;
+        border-right: 5px;
+    }
+
+    ul.drop-down-menu li:hover > ul ul { 
+        left: 99999px;
+    }
+
+    ul.drop-down-menu ul li:hover > ul { 
+        left: 90%;
+    }
+
+
+.content {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+.footer {
+  clear: both;
+  background-color: #336699;
+  color: #f2f2f2;
+  padding: 16px;
+}
+th{text-align: left;}
+
+</style>
+<script>
+    window.onload = function() {
+       var iframe = document.getElementById("myiframe");
+       iframe.width = iframe.contentWindow.document.body.scrollWidth;
+       iframe.height = iframe.contentWindow.document.body.scrollHeight;
+    }
+ </script>
+</head>
+<body>
+    
+<div class="topnav">
+    <hr>
+    <header><b>香港岩石</b></header>
+    <hr>
+    <ul class="drop-down-menu">
+        <li><a href="index.html">主頁</a>
+        </li>
+        <li><a>岩石</a>
+            <ul>
+                <li><a href="火成岩e.g.html" target="iframe_a">火成岩</a>
+                </li>
+                <li><a href="沉積岩e.g.html" target="iframe_a">沉積岩</a>
+                </li>
+                <li><a href="變質岩e.g.html" target="iframe_a">變質岩</a>
+                </li>
+            </ul>
+        </li>
+        <li><a>分布</a>
+            <ul>
+                <li><a href="火成岩分布.html" target="iframe_a">火成岩</a>
+                </li>
+                <li><a href="沉積岩分布.html" target="iframe_a">沉積岩</a>
+                </li>
+                <li><a href="變質岩分布.html" target="iframe_a">變質岩</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="test.html" target="iframe_a">小測驗</a>
+        
+    </ul>
+</div>
+
+<div class="content">
+   <h2><iframe src="homepage.html" name="iframe_a" height="1000px" width="100%" title="Iframe Example"></iframe></h2> 
+</div>
+
+
+<div class="footer">
+    <table>
+        <th><h1>About us</h1>
+            <p>Email : redlam.gaming@gmail.com</p>
+            <p>Discord : WheatTheFish</p>
+            <p>Youtube : WheatTheFish</p>
+            <p>A student that have learn geography</p></th>
+            <th><h1>About website</h1>
+            <P>介紹石頭,提供關於岩石的知識和教育資源。包括岩石的基本概念、分類、組成、形態和地質背景的解釋
+                這樣的資訊可以滿足地質學學生、愛好者和一般公眾對岩石的學習需求,
+                提供岩石的圖片、促進公眾對岩石的興趣和欣賞。</P>
+        </th>
+        <th> <iframe  id="myiframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d944655.1823773517!2d113.47994635276287!3d22.351389419521244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403e2eda332980f%3A0xf08ab3badbeac97c!2z6aaZ5riv!5e0!3m2!1szh-TW!2shk!4v1701501873563!5m2!1szh-TW!2shk"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></th>
+    </table>
+ 
+</div>
+
+</body>
+</html>

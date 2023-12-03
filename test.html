@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  
+
+  <style>
+    
+    #question-display {
+      font-size: 48px;
+      background-color: #006eff;
+      color: black;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #score-display {
+      
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    #options-display {
+      margin-bottom: 36px;
+      text-align: left;
+    
+    }
+
+    .option-label {
+      display: block;
+    }
+
+    .option-label input {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 40px;
+    }
+    
+   
+  </style>
+  <script > window . onload =  function (
+    ){
+         var  oPtxt= document . getElementById ( "options-display" );
+         var  oBtn1= document . getElementById ( "Btn1" );
+         var  oBtn2= document . getElementById ( "Btn2" );
+         var num = 16;
+        oBtn1. onclick  =  function (){
+            num++;
+            oPtxt. style . fontSize =num+ 'px' ;
+        };
+        oBtn2. onclick  =  function (){
+            num--;
+            oPtxt. style . fontSize =num+ 'px' ;
+        }
+    }
+</script>
+<head>
+  <title>小測驗</title>
+</head>
+<body>
+  
+  <div id="question-display"></div>
+  <input  id = "Btn1"  type = "button"  value= "AAA"  name= "" />
+  <input  id = "Btn2"  type = "button"  value= "aaa"  name= "" />
+  <div id="options-display"></div>
+  <div id="answer-display"></div>
+  <button onclick="checkAnswer()">下一題</button>
+  <div id="score-display"></div>
+  <script>
+    var questionBank = [
+      {
+        question: "以下那項不是火山岩的特徵？",
+        options: [
+          "A. 由岩漿冷卻形成",
+          "B. 六角柱狀節理",
+          "C. 抗蝕力高",
+          "D. 由岩石碎屑組成"
+        ],
+        answer: "D. 由岩石碎屑組成"
+      },
+      {
+        question: "以下那項不是沉積岩的特徵？",
+        options: [
+          "A. 由風化和運輸形成",
+          "B. 包含化石",
+          "C. 由高壓和高溫形成",
+          "D. 分層結構"
+        ],
+        answer: "C. 由高壓和高溫形成"
+      },
+      {
+        question: "以下那種不是沉積岩？",
+        options: [
+          "A. 鹽岩",
+          "B. 頁岩",
+          "C. 石灰岩",
+          "D. 花崗岩"
+        ],
+        answer: "D. 花崗岩"
+      },
+      {
+        question: "以是那項是火山岩",
+        options: [
+          "A. 鹽岩",
+          "B. 凝灰岩",
+          "C. 石灰岩",
+          "D. 花崗岩"
+        ],
+        answer: "B. 凝灰岩"
+      },
+      {
+        question: "以下哪項是侵入岩形成的",
+        options: [
+          "A. 獅子山",
+          "B. 東平洲",
+          "C. 大帽山",
+          "D. 八仙嶺"
+        ],
+        answer: "A. 獅子山"
+      },
+      {
+        question: "以下哪項是火山岩形成的",
+        options: [
+          "A. 獅子山",
+          "B. 東平洲",
+          "C. 大帽山",
+          "D. 九龍半島"
+        ],
+        answer: "C. 大帽山"
+      },
+      {
+        question: "以下哪項是沉積岩形成的",
+        options: [
+          "A. 獅子山",
+          "B. 東平洲",
+          "C. 大帽山",
+          "D. 九龍半島"
+        ],
+        answer: "B. 東平洲"
+      },
+      {
+        question: "以下那種不是火山岩？",
+        options: [
+          "A. 頁岩",
+          "B. 玄武岩",
+          "C. 花崗岩",
+          "D. 安山岩"
+        ],
+        answer: "A. 頁岩,"
+      },
+      {
+        question: "以下那種不是變質岩？",
+        options: [
+          "A. 大理岩",
+          "B. 蛇紋岩",
+          "C. 橄欖岩",
+          "D. 石英岩"
+        ],
+        answer: "C. 橄欖岩,"
+      },
+      {
+        question: "以下那項是沉積岩的特徵？",
+        options: [
+          "A. 由受到熱和壓力形成的",
+          "B. 岩漿或熔岩冷卻凝固後形成",
+          "C. 是由生物體的堆積造成",
+          "D. 其他岩石的碎屑形成"
+        ],
+        answer: "D. 由受到熱和壓力形成的,"
+      },
+
+
+      // add more question owo
+    ];
+
+    var score = 0;
+    var totalQuestions = questionBank.length;
+    var currentQuestionIndex = 0;
+
+    function displayQuestion() {
+      var questionDisplay = document.getElementById("question-display");
+      var optionsDisplay = document.getElementById("options-display");
+
+      var currentQuestion = questionBank[currentQuestionIndex];
+
+      questionDisplay.textContent = "問題 " + (currentQuestionIndex + 1) + "：" + currentQuestion.question;
+
+      optionsDisplay.innerHTML = "";
+
+      for (var i = 0; i < currentQuestion.options.length; i++) {
+        var option = currentQuestion.options[i];
+        var radioButton = document.createElement("input");
+        radioButton.type = "radio";
+        radioButton.name = "answer";
+        radioButton.value = option;
+
+        var label = document.createElement("label");
+        label.className = "option-label";
+        label.innerHTML += option;
+        label.insertBefore(radioButton, label.firstChild);
+
+        optionsDisplay.appendChild(label);
+      }
+    }
+
+    function checkAnswer() {
+      var selectedOption = document.querySelector("input[name='answer']:checked");
+      var answerDisplay = document.getElementById("answer-display");
+      var scoreDisplay = document.getElementById("score-display");
+
+      if (selectedOption) {
+        var selectedAnswer = selectedOption.value;
+        var currentQuestion = questionBank[currentQuestionIndex];
+
+        if (selectedAnswer === currentQuestion.answer) {
+          score++;
+        }
+
+        answerDisplay.textContent = "";
+
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < totalQuestions) {
+          displayQuestion();
+        } else {
+          var questionDisplay = document.getElementById("question-display");
+          questionDisplay.textContent = "結束";
+
+          var scorePercentage = (score / totalQuestions) * 100;
+
+          scoreDisplay.textContent = "最終得分：" + scorePercentage.toFixed(2) + "%";
+
+          document.querySelector("button").style.display = "none";
+
+          var answerLabel = document.createElement("div");
+          answerLabel.className = "";
+          answerLabel.textContent = "答案：";
+
+          var answerList = document.createElement("ul");
+          answerList.style.listStyleType = "none";
+
+          var optionsDisplay = document.getElementById("options-display");
+          optionsDisplay.textContent = "";
+
+          for (var i = 0; i < totalQuestions; i++) {
+            var question = questionBank[i];
+            var answerItem = document.createElement("li");
+            answerItem.textContent = "問題 " + (i + 1) + "：" + question.answer;
+            answerList.appendChild(answerItem);
+          }
+
+          answerDisplay.appendChild(answerLabel);
+          answerDisplay.appendChild(answerList);
+        }
+      }
+    }
+
+    displayQuestion();
+        
+  </script>
+  <h3> <a href="homepage.html" target="iframe_a">GO BACK</a>
+</body>
+</html>
